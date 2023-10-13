@@ -1,0 +1,29 @@
+<div class="flex-center">
+    <h2>Selected Cocktail: {{selectedCocktail}}</h2>
+    <mat-slide-toggle color="primary" [(ngModel)]="toggleAPI">Use API to update results</mat-slide-toggle>
+    <button mat-raised-button [matMenuTriggerFor]="filterMenu"><mat-icon>filter_list_alt</mat-icon>Filter</button>
+</div>
+<div class="container flex-center">
+    <ng-container *ngIf="updatedDrinksList.length>0; else drinksnotavailable">
+        <ng-container *ngFor="let data of updatedDrinksList">
+            <app-card [cardDetails]="data"></app-card>
+        </ng-container>
+    </ng-container>
+</div>
+
+<ng-template #drinksnotavailable>
+    <h2>No Drinks are available</h2>
+</ng-template>
+
+<mat-menu #filterMenu="matMenu">
+    <ul class="list-type-none">
+        <li *ngFor="let filter of filterArr; let i=index">
+            <mat-checkbox [(ngModel)]="filter.checked" [disabled]="filter.disabled"
+                        (click)="$event.stopPropagation()"
+                        (change)="onFilterChange(i)"
+                        color="primary">
+                {{filter.filterName}}
+            </mat-checkbox>
+        </li>
+    </ul>
+</mat-menu>

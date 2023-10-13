@@ -1,0 +1,12 @@
+<div class="card" (click)="onCardClick(cardDetails)">
+    <img [src]="cardDetails.image" />
+    <div [ngClass]="cardDetails.hasOwnProperty('isAlcoholic') ? 'flex-description' : ''">
+        <h2 class="text-center">{{cardDetails.name}}</h2>
+        <ng-container *ngIf="cardDetails.hasOwnProperty('isAlcoholic')">
+            <span class="cocktail-type">
+                <img [src]="cardDetails.isAlcoholic ? '../../../assets/alcoholic.png' : '../../../assets/non-alcoholic.png'" />
+                {{cardDetails.isAlcoholic ? 'Alcoholic' : 'Non-Alcoholic'}}
+            </span>
+        </ng-container>
+    </div>
+</div>

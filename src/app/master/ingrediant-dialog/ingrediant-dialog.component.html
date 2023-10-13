@@ -1,0 +1,24 @@
+<div class="container">
+
+    <!-- Dialog Head -->
+    <div class="dialog-header">
+        <h2 class="text-center">Showing Ingrediants for <em>{{data.strDrink}}</em></h2>
+    </div>
+
+    <div class="horizontal-line"></div>
+
+    <!-- Dialog Body -->
+    <div class="image-container">
+        <img [src]="data.strDrinkThumb" />
+        <h2 class="f-left">Ingrediants List:</h2>
+        <ul class="f-left">
+            <li  *ngFor="let ingredint of Object.values(this.data.filteredIngrediants)">{{ingredint}}</li>
+        </ul>
+    </div>
+
+    <div class="horizontal-line"></div>
+    <!-- Dialog Footer -->
+    <mat-dialog-actions align="center">
+        <button mat-button mat-dialog-close>Close</button>
+    </mat-dialog-actions>
+</div>

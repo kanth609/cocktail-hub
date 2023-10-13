@@ -1,0 +1,19 @@
+.container{
+    height: 70vh;
+    // width: 80vw;
+    .image-container{
+        height: 70%;
+        img{
+            float: left;
+            width: 50%;
+            height: 100%;
+        }
+        h2{
+            margin: 0.5rem;
+        }
+        ul{
+            margin: 0.5rem 0;
+            width: 40%;
+        }
+    }
+}
